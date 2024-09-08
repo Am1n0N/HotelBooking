@@ -1,6 +1,9 @@
-package com.arabsoft.HotelBooking.Models;
+package com.arabsoft.HotelBooking.reservation.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+
+import com.arabsoft.HotelBooking.room.model.Room;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,19 +15,20 @@ import lombok.Data;
 
 @Data
 @Entity
-public class CartItem {
+public class TemporaryReservedRoom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "cart_id")
-    private Cart cart;
-
-    @ManyToOne
-    @JoinColumn(name = "room_category_id")
-    private RoomCategory roomCategory;
+    @JoinColumn(name = "room_id")
+    private Room room;
 
     private LocalDate date;
     private int quantity;
+    private BigDecimal rateAtTimeOfReservation;
+
+    @ManyToOne
+    @JoinColumn(name = "temporary_reservation_id")
+    private TemporaryReservation temporaryReservation;
 }

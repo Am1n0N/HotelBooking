@@ -1,4 +1,4 @@
-package com.arabsoft.HotelBooking.Models;
+package com.arabsoft.HotelBooking.room.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -10,23 +10,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
-
 @Data
 @Entity
-public class TemporaryReservedRoom {
+public class DailyInventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "room_id")
-    private Room room;
+    @JoinColumn(name = "room_category_id")
+    private RoomCategory roomCategory;
 
     private LocalDate date;
-    private int quantity;
-    private BigDecimal rateAtTimeOfReservation;
-
-    @ManyToOne
-    @JoinColumn(name = "temporary_reservation_id")
-    private TemporaryReservation temporaryReservation;
+    private int availableRooms;
+    private BigDecimal rate;
 }

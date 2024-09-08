@@ -1,4 +1,4 @@
-package com.arabsoft.HotelBooking.Models;
+package com.arabsoft.HotelBooking.room.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -19,7 +19,6 @@ public class RoomCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
     private String description;
     private BigDecimal basePrice;
@@ -33,14 +32,5 @@ public class RoomCategory {
 
     @ManyToMany(mappedBy = "roomCategories")
     private Set<Amenity> amenities;
-
-    // Method to get inventory for a specific date
-    public DailyInventory getInventoryForDate(LocalDate date) {
-        return dailyInventories.stream()
-            .filter(inventory -> inventory.getDate().equals(date))
-            .findFirst()
-            .orElse(null);
-    }
-
-
 }
+

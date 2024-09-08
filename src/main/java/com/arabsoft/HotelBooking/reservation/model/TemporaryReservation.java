@@ -1,10 +1,12 @@
-package com.arabsoft.HotelBooking.Models;
+package com.arabsoft.HotelBooking.reservation.model;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 import com.arabsoft.HotelBooking.Enums.ReservationStatus;
+import com.arabsoft.HotelBooking.user.model.User;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -30,9 +32,10 @@ public class TemporaryReservation {
     private LocalDateTime creationTime;
     private LocalDateTime expirationTime;
 
-    @OneToMany(mappedBy = "temporaryReservation")
+    @OneToMany(mappedBy = "temporaryReservation", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TemporaryReservedRoom> reservedRooms;
 
     @Enumerated(EnumType.STRING)
     private ReservationStatus status;
 }
+

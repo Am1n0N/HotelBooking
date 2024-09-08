@@ -1,6 +1,8 @@
-package com.arabsoft.HotelBooking.Models;
+package com.arabsoft.HotelBooking.room.model;
 
 import java.util.List;
+
+import com.arabsoft.HotelBooking.reservation.model.BookedRoomDetail;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,5 +27,5 @@ public class Room {
     private int roomNumber;
 
     @OneToMany(mappedBy = "room")
-    private List<Booking> bookings;
+    private List<BookedRoomDetail> bookings;
 }

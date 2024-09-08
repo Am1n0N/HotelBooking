@@ -1,9 +1,12 @@
-package com.arabsoft.HotelBooking.Models;
+package com.arabsoft.HotelBooking.reservation.model;
 
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
+
+import com.arabsoft.HotelBooking.room.model.Room;
+import com.arabsoft.HotelBooking.user.model.Guest;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

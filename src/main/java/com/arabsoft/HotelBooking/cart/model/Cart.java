@@ -1,7 +1,10 @@
-package com.arabsoft.HotelBooking.Models;
+package com.arabsoft.HotelBooking.cart.model;
 
 import java.util.List;
 
+import com.arabsoft.HotelBooking.user.model.User;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +25,6 @@ public class Cart {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "cart")
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CartItem> items;
 }

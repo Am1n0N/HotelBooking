@@ -1,4 +1,4 @@
-package com.arabsoft.HotelBooking.Models;
+package com.arabsoft.HotelBooking.room.model;
 
 import java.util.Set;
 
@@ -17,7 +17,6 @@ public class Amenity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
     private String description;
 

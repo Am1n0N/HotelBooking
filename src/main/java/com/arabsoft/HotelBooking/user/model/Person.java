@@ -1,4 +1,4 @@
-package com.arabsoft.HotelBooking.Models;
+package com.arabsoft.HotelBooking.user.model;
 
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.arabsoft.HotelBooking.Models;
+package com.arabsoft.HotelBooking.user.model;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -12,5 +12,4 @@ import lombok.EqualsAndHashCode;
 public class User extends Person{
     private String cin;
     private String passportNumber;
-
 }
